@@ -16,9 +16,6 @@ Run command prompt
 
 >>jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
->>jupyter nbextension install --py bamboolib --sys-prefix
-
->>jupyter nbextension enable --py bamboolib --sys-prefix
 
 # Main features and benefits of Pandas_ui
 
