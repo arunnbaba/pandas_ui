@@ -5,6 +5,10 @@ This tool is inspired and created as an alternative for the bamboolib since it c
 
 This tool is tested and verified with windows 10, Google chrome, Python 3.7.
 
+# Who is this tool for:
+It is highly sophisticated and yet easy to use tool that can be used by both the advanced and novice users. It is designed to reduce the time fo data pre-processing for data scientists and data analysts.
+It is highly recommended for the python and pandas beginners.
+
 # Getting started.
 
 To install: 
