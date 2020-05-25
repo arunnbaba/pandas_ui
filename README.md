@@ -24,7 +24,9 @@ Run command prompt
 
 # 90% less working time
 Focus on what you want to do instead of how
+
 No more digging through StackOverflow
+
 What would you prefer a dozen of complex python code or few mouse click?.
 
 # Easy to use
@@ -32,9 +34,12 @@ Quick onboarding with minimal learning curve
 
 # 100% compatible and flexible
 Seamless integration into your existing working environment
+
 Work from within Jupyter Notebook or JupyterLab
 
 # Private, secure, local
 All your data remains private and secure
+
 Use it on your local machine without the need for cloud access
+
 Satisfies the requirements of your IT department
