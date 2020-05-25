@@ -25,6 +25,7 @@ Run command prompt
 # 90% less working time
 Focus on what you want to do instead of how
 No more digging through StackOverflow
+What would you prefer a dozen of complex python code or few mouse click?.
 
 # Easy to use
 Quick onboarding with minimal learning curve
