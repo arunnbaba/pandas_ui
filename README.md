@@ -20,6 +20,16 @@ Run command prompt
 
 >>jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
+After installing open jupyter notebook
+
+>>from pandas_ui import *
+>> pandas_ui('csv_file_path_here')
+
+To get the dataframe after processing:
+
+>>getdf() # to get the dataframe
+>>getmeltdf() or  getpivotdf() # to get melt or pivot dataframes if you have created any.
+
 
 # Main features and benefits of Pandas_ui
 
