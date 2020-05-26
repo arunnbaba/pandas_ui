@@ -22,7 +22,7 @@ Run command prompt
 
 >>jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
-After installing open jupyter notebook
+After installing, open jupyter notebook
 
 >>from pandas_ui import *
 
