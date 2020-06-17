@@ -4806,7 +4806,7 @@ def pandas_ui1(path):
     children = [tab_c1, tab_c2, tab_c3, tab_c4]
 
     tab.children = children
-    for i, j in zip((0, 1, 2, 3), ["DataFrame", "PandasProfoling", "Explore", "Commands"]):
+    for i, j in zip((0, 1, 2, 3), ["DataFrame", "PandasProfiling", "Explore", "Commands"]):
         tab.set_title(i, j)
 
     #display(icon)
