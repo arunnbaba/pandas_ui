@@ -34,6 +34,8 @@ To get the dataframe after processing:
 
 >>get_meltdf() or  get_pivotdf() # to get melt or pivot dataframes if you have created any.
 
+Note: current version doesn't work on Google Colab
+
 
 # Main features and benefits of Pandas_ui
 
