@@ -1,6 +1,8 @@
 # pandas_ui
 pandas_ui helps you wrangle &amp; explore your data and create custom visualizations without digging through StackOverflow. All inside your Jupyter Notebook ( alternative to Bamboolib ).
 
+[![Downloads](https://pepy.tech/badge/pandas-ui)](https://pepy.tech/project/pandas-ui)
+
 This tool is inspired and created as an alternative for the bamboolib since it comes with pricing.
 
 This tool is tested and verified with windows 10, Google chrome, Python 3.7.
