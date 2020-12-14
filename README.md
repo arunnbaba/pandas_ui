@@ -10,8 +10,9 @@ This tool is tested and verified with windows 10, Google chrome, Python 3.7.
 please read this medium article for more details: https://medium.com/@arunnbaba/pandas-ui-87316a4e19c7?sk=250429311c0655bf43a65a1cf688b966
 
 STARGAZERS :
+             [![Stargazers repo roster for @arunnbaba/pandas_ui](https://reporoster.com/stars/arunnbaba/pandas_ui)](https://github.com/arunnbaba/pandas_ui/stargazers)
 
-FORKERS    : [![Stargazers repo roster for @arunnbaba/pandas_ui](https://reporoster.com/stars/arunnbaba/pandas_ui)](https://github.com/arunnbaba/pandas_ui/stargazers)
+FORKERS    : 
              [![Forkers repo roster for @arunnbaba/pandas_ui](https://reporoster.com/forks/arunnbaba/pandas_ui)](https://github.com/arunnbaba/pandas_ui/network/members)
 
 # Who is this tool for:
