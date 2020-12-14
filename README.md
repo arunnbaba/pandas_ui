@@ -12,7 +12,6 @@ please read this medium article for more details: https://medium.com/@arunnbaba/
 STARGAZERS :
 
 FORKERS    : [![Stargazers repo roster for @arunnbaba/pandas_ui](https://reporoster.com/stars/arunnbaba/pandas_ui)](https://github.com/arunnbaba/pandas_ui/stargazers)
-
              [![Forkers repo roster for @arunnbaba/pandas_ui](https://reporoster.com/forks/arunnbaba/pandas_ui)](https://github.com/arunnbaba/pandas_ui/network/members)
 
 # Who is this tool for:
