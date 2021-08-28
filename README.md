@@ -30,6 +30,18 @@ Run command prompt
 
 >>jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
+# Edit.
+
+I have been notified of a table display issue, This error will be mitigated from the next update release.
+
+In the meantime one can correct this issue by downgrading ipywidgets please find the commands for that as follows.
+
+>>pip uninstall ipywidgets
+
+>>pip install ipywidgets==7.5.1
+
+>>jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
 After installing, open jupyter notebook
 
 >>from pandas_ui import *
