@@ -1,3 +1,3 @@
-include pandas_ui\*.html
-include pandas_ui\*.png
-include pandas_ui\*.jpg
+include pandas_ui/*.html
+include pandas_ui/*.png
+include pandas_ui/*.jpg

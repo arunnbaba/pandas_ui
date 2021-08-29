@@ -30,9 +30,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 import sys
-from IPython.display import display, HTML;import os
+from IPython.display import display, HTML
+import os
+import site
 
-    
+
 
 #Main Class:
 class student:
@@ -125,7 +127,7 @@ class student:
         self.col =  widgets.Dropdown(options=col_val,value=col_val[0], description='of:       ' )
 
 
-        def __del__(self): 
+        def __del__(self):
             dest_cnt =  student.dest_cnt
             dest_cnt += 1
             student.dest_cnt =  dest_cnt
@@ -305,10 +307,10 @@ class student:
 
 
 def pandas_ui1(path):
-    
+
     #######################################################################################################\
     #######################################################################################################
-    
+
     #Accordion layout
     label_layout = Layout(width='0px', height='50px')
     label_layout1 = Layout(width='10px', height='50px')
@@ -362,13 +364,13 @@ def pandas_ui1(path):
     student.flto = 0
     student.pivotdf = 0
     student.meltdf = 0
-    
+
     student.org_df = 0
     student.temp = 0
     student.org = 0
     ##@ Changing class variable
     student.dataf = df
-    
+
     student.org_df = df
     wid_val = stu.wid_value
     wid = stu.cls_dropdown_func()
@@ -406,7 +408,7 @@ def pandas_ui1(path):
     #General functions:
     def head_buttons_disp1(x):
         head_label = widgets.HTML(value="<b>" + x + "</b>", layout=bh_layout)
-        
+
         head = HBox([
                 bctb,
                 Label('', layout=label_layout3),
@@ -418,9 +420,9 @@ def pandas_ui1(path):
         display(head)
         display(hd_lineout1)
 
-        
+
     def head_buttons_disp(x, co=False, cf=False, tb=False):
-        
+
 
         #head_label = Label(x, layout=bh_layout)
         head_label = widgets.HTML(value="<b>" + x + "</b>", layout=bh_layout)
@@ -470,7 +472,7 @@ def pandas_ui1(path):
 
 
     #######################################################################################################
-    
+
 
         #@changing static variable
     #     student.flt_cnt = 1
@@ -481,7 +483,7 @@ def pandas_ui1(path):
     #         st =  "del "+key
     #         exec(st)
 
-        
+
         #if tb == True:
         #    tab_out_disp(accordion)
         #else:
@@ -510,7 +512,7 @@ def pandas_ui1(path):
 #             print('inside false')
 #             head_buttons_disp(x, tb=False, co = True)
 
-        
+
         flt_dict = dict()
 
         #stu1 = student()
@@ -527,7 +529,7 @@ def pandas_ui1(path):
         eb = key_val.eb
         tx = key_val.tx
         eo = key_val.eo
-        
+
         Hb1 = HBox([ea, eb, tx])
         vb = VBox([el, Hb1, el])
         #display(vb)
@@ -539,7 +541,7 @@ def pandas_ui1(path):
         bs.style.button_color = 'green'
 
         Hbb = HBox([ba, bs])
-        
+
         def select_cd(dicto, expr_dict, seldropz):
 
             flt_val = dicto
@@ -649,7 +651,7 @@ def pandas_ui1(path):
                 expr_dict[i] = j
 
             select_cd(flt_val, expr_dict, seldropz =  seldrop.value)
-        
+
         sdopt = ['Select rows', 'Drop rows']
         seldrp = widgets.Dropdown(
             options=sdopt, value=sdopt[0], description='Select/Drop: ')
@@ -658,7 +660,7 @@ def pandas_ui1(path):
         seldrop = widgets.Dropdown(
             options=sdopt, value=sdopt[0], description='Select/Drop: ')
 
-        
+
         #display(seldrops)
         display(seldrop)
         display(vb)
@@ -802,27 +804,27 @@ def pandas_ui1(path):
             df = student.dataf
             df_lis = list(df.columns)
 
-            
-            
+
+
             #i_ind =  df_lis.index(ea.value)
-            
-            
-            
+
+
+
             #print(a[:ind]);print(a[ind:])
-            
+
             if ea.value != eac.value:
-                
+
                 df_lis.remove(ea.value)
-                
+
                 ind = df_lis.index(eac.value)
-                
+
                 if eb.value == 'Move Before':
-                    
+
                     df_lis =  df_lis[:ind] + [ea.value] + df_lis[ind:]
-                    
+
                 if eb.value == 'Move After':
                     df_lis =  df_lis[:ind+1] + [ea.value] + df_lis[ind+1:]
-                
+
 
 #                 if eb.value == 'Move Before':
 #                     if i_ind == 0 and ind == 0:
@@ -855,7 +857,7 @@ def pandas_ui1(path):
         x = co_wid
         clear_output()
 
-        
+
         tb_val = tb
 #         if tb_val == True:
 #             head_buttons_disp(x, tb=True, co = True)
@@ -1031,7 +1033,7 @@ def pandas_ui1(path):
                     df =  student.dataf
                     name =  col.value
                     value =  tx.value
-                    split_df = df[name].str.split(value, expand =  True) 
+                    split_df = df[name].str.split(value, expand =  True)
 
                     split_df.columns =[f"Name{id_}" for id_ in range(len(split_df.columns))]
 
@@ -1106,8 +1108,8 @@ def pandas_ui1(path):
 
                 display(bfr)
 
-            #******************************   
-            if ea.value =='Extract substring': 
+            #******************************
+            if ea.value =='Extract substring':
                 #df['Name'] =  df['Name'].str.slice(start=1, stop = 5)
                 #head_buttons_disp(ea.value, co = True)
                 cols_val = df.columns
@@ -1142,7 +1144,7 @@ def pandas_ui1(path):
                         df[key] =  eval(eval_st)
                     except:
                         js = '<script>alert("Exception raised with the option selected, Please go Back");</script>';display(HTML(js));raise
-                        
+
                     student.dataf = df
                     student.code_list.append(code_st)
                     student.code_list.append(eval_st)
@@ -1175,7 +1177,7 @@ def pandas_ui1(path):
                     code_st += sq + ']'
 
                     eval_st =  'df['+sq+'{col}'.format(col = col.value)
-                    eval_st +=  sq 
+                    eval_st +=  sq
                     eval_st += '].str.{strip}()'.format(strip = cols.value)
 
 
@@ -1196,10 +1198,10 @@ def pandas_ui1(path):
                 btr.on_click(functools.partial(on_btr_clicked))
 
                 display(btr)
-            #******************************    
+            #******************************
             if ea.value =='to lowercase':
                 #head_buttons_disp(ea.value, co = True)
-                #data["Team"]= data["Team"].str.upper() 
+                #data["Team"]= data["Team"].str.upper()
                 cols_val = df.columns
                 col =  widgets.Dropdown(options=cols_val,value=cols_val[0], description='Column: ' )
 
@@ -1212,7 +1214,7 @@ def pandas_ui1(path):
                     code_st += sq + ']'
 
                     eval_st =  'df['+sq+'{col}'.format(col = col.value)
-                    eval_st +=  sq 
+                    eval_st +=  sq
                     eval_st += '].str.lower()'
 
                     key =  col.value
@@ -1233,11 +1235,11 @@ def pandas_ui1(path):
 
                 display(btr)
 
-            #******************************    
+            #******************************
             if ea.value =='to uppercase':
                 #head_buttons_disp(ea.value, co = True)
-                #data["Team"]= data["Team"].str.lower() 
-                #data["Team"]= data["Team"].str.upper() 
+                #data["Team"]= data["Team"].str.lower()
+                #data["Team"]= data["Team"].str.upper()
                 cols_val = df.columns
                 col =  widgets.Dropdown(options=cols_val,value=cols_val[0], description='Column: ' )
 
@@ -1250,7 +1252,7 @@ def pandas_ui1(path):
                     code_st += sq + ']'
 
                     eval_st =  'df['+sq+'{col}'.format(col = col.value)
-                    eval_st +=  sq 
+                    eval_st +=  sq
                     eval_st += '].str.upper()'
 
                     key =  col.value
@@ -1270,10 +1272,10 @@ def pandas_ui1(path):
                 btr.on_click(functools.partial(on_btr_clicked))
 
                 display(btr)
-            #******************************    
+            #******************************
             if ea.value =='length':
                 #head_buttons_disp(ea.value, co = True)
-                #data["Team"]= data["Team"].str.upper() 
+                #data["Team"]= data["Team"].str.upper()
                 cols_val = df.columns
                 col =  widgets.Dropdown(options=cols_val,value=cols_val[0], description='Column: ' )
 
@@ -1286,7 +1288,7 @@ def pandas_ui1(path):
                     code_st += sq + ']'
 
                     eval_st =  'df['+sq+'{col}'.format(col = col.value)
-                    eval_st +=  sq 
+                    eval_st +=  sq
                     eval_st += '].str.len()'
 
                     key =  col.value
@@ -1371,15 +1373,11 @@ def pandas_ui1(path):
         #######################################################################################################
 
         def summ_disp(column_summ_val):
-            
             patho = eval('pd.__file__')
-            patho =  patho.replace('pandas\__init__.py','')
-
-
-            
-            file = open(patho +"pandas_ui\plot.png", "rb")
+            patho = site.getsitepackages()[0]
+            file = open(patho + "/pandas_ui/plot.png", "rb")
             image = file.read()
-            file1 = open(patho +"pandas_ui\plt1.png", "rb")
+            file1 = open(patho + "/pandas_ui/plt1.png", "rb")
             image1 = file1.read()
             csv = widgets.Image(
                 value=image,
@@ -1973,7 +1971,7 @@ def pandas_ui1(path):
                     df[col_val] = eval(eval_st)
                 except:
                     js = '<script>alert("Exception raised with the option selected, Please go Back");</script>';display(HTML(js));raise
-                    
+
 
                 sq = '\''
                 code_st = "df[" + sq + "{col}".format(col=col_val)
@@ -2204,10 +2202,10 @@ def pandas_ui1(path):
                                 val =  int(toa.value)
                                 #print('numeric')
                             else:
-                                try :  
-                                    float(test_string) 
+                                try :
+                                    float(test_string)
                                     res = True
-                                except : 
+                                except :
                                     res = False
                                 if res == True:
                                     val =  float(toa.value)
@@ -2236,10 +2234,10 @@ def pandas_ui1(path):
                                     val =  int(toa2.value)
                                     #print('numeric')
                                 else:
-                                    try :  
-                                        float(test_string) 
+                                    try :
+                                        float(test_string)
                                         res = True
-                                    except : 
+                                    except :
                                         res = False
                                     if res == True:
                                         val =  float(toa2.value)
@@ -2459,7 +2457,7 @@ def pandas_ui1(path):
                     #*************************************************
 
                     oxpaa = ['Remove Null values' ,  'Fill Null values']
-                    fd =  widgets.Dropdown(options=oxpaa,value=None , description = 'Operation: ')    
+                    fd =  widgets.Dropdown(options=oxpaa,value=None , description = 'Operation: ')
 
 
                     def resfd(cntl):
@@ -2547,10 +2545,10 @@ def pandas_ui1(path):
                                         if int_test == True:
                                             txfd_val =  int(txfd.value)
                                         else:
-                                            try :  
-                                                float(test_string) 
+                                            try :
+                                                float(test_string)
                                                 res = True
-                                            except : 
+                                            except :
                                                 res = False
                                             if res == True:
                                                 txfd_val =  float(txfd.value)
@@ -2599,10 +2597,10 @@ def pandas_ui1(path):
                                             txfd_val =  int(txfd.value)
                                             #print('numeric')
                                         else:
-                                            try :  
-                                                float(test_string) 
+                                            try :
+                                                float(test_string)
                                                 res = True
-                                            except : 
+                                            except :
                                                 res = False
                                             if res == True:
                                                 txfd_val =  float(txfd.value)
@@ -2663,7 +2661,7 @@ def pandas_ui1(path):
             lineout = widgets.Output(layout={'border': '1px solid black'})
 
             oxpaa = ['Update table value' ,  'Handle Null value']
-            upd =  widgets.Dropdown(options=oxpaa,value=None , description = 'Operation: ')    
+            upd =  widgets.Dropdown(options=oxpaa,value=None , description = 'Operation: ')
 
             upd.observe(response, names = 'value')
             clear_output()
@@ -2718,7 +2716,7 @@ def pandas_ui1(path):
 
                 #flt_val =  dicto
                 df = student.dataf
-                
+
                 tx_val =  tx.value
                 tx_val =  tx_val[:-2]
 
@@ -2743,7 +2741,7 @@ def pandas_ui1(path):
                 student.code_list.append(eval_st)
                 student.grp_cnt = 1
                 primary_disp()
-                
+
 
 
             def on_ba_clicked(cntrl):
@@ -2832,7 +2830,7 @@ def pandas_ui1(path):
 
         ###################################################################################################
         def on_b7_clicked(cntrl):
-            
+
             clear_output()
             x = 'Merge/Join';tb_val = True;head_buttons_disp(x,tb=tb_val)
             merge_val = ['inner','outer','left','right']
@@ -2855,8 +2853,8 @@ def pandas_ui1(path):
 
 
             def on_btr_clicked(cntl):
-                
-                
+
+
                 def sel_mul(exp, expr):
 
                     if exp == 'Null':
@@ -2990,18 +2988,18 @@ def pandas_ui1(path):
 
 
         ###################################################################################################
-        
+
         def on_b13_clicked(cntel):
-            
+
             clear_output()
             x = 'History';tb_val = True;head_buttons_disp(x,tb=tb_val)
-            
-            
+
+
             student.org = student.code_list
-    
+
             student.temp =  student.code_list
 
-            
+
             bs = widgets.Button(description='Get_History',button_style='success')
             bundo = widgets.Button(description='Undo',button_style='warning',icon = 'fa-rotate-left')
             bredo = widgets.Button(description='Redo',button_style='info',icon = 'fa-rotate-right')
@@ -3035,23 +3033,23 @@ def pandas_ui1(path):
                     ll = Label( ' ~ ')
 
                     if i[:7] == 'df.pivo' or i[:7] == 'df.melt' or i[:6] =='df.loc':
-                        
-                           
+
+
                             Lab = widgets.HTML(value="<b>"+i+"</b>")
-        
+
                             hh = widgets.HBox([ll, Lab])
                             display(hh)
 
-                    else:      
+                    else:
 
                         if i[:4] == 'df['+'\'' and i[-2:] == '\']':
 
                             #print('**', i[3:-1])
                             k = next(iterable)
                             i  = i + ' = '+ k
-                            
+
                             Lab = widgets.HTML(value="<b>"+i+"</b>")
-                            
+
                             hh = widgets.HBox([ll, Lab])
                             display(hh)
                             continue
@@ -3080,7 +3078,7 @@ def pandas_ui1(path):
                     else:
                         temp = temp[:-1]
 
-                student.temp =  temp        
+                student.temp =  temp
                 iterable = iter(student.temp)
 
                 df = student.org_df
@@ -3138,7 +3136,7 @@ def pandas_ui1(path):
                         if i[:6] =='df.loc':
                             exec(i)
                             student.dataff = df
-                        else:   
+                        else:
                             if i[:4] == 'df['+'\'' and i[-2:] == '\']':
 
                                 col_val =  i[4:-2]
@@ -3159,7 +3157,7 @@ def pandas_ui1(path):
             def on_bs_clicked(cntrl):
                 displays()
 
-                
+
             def on_bcommit_clicked(cntrl):
                 student.code_list =  student.temp
                 student.org = student.temp
@@ -3167,13 +3165,13 @@ def pandas_ui1(path):
                 primary_disp()
 
 
-            bs.on_click(functools.partial(on_bs_clicked))    
+            bs.on_click(functools.partial(on_bs_clicked))
 
             bundo.on_click(functools.partial(on_bundo_clicked))
 
 
             bredo.on_click(functools.partial(on_bredo_clicked))
-            
+
             bcommit.on_click(functools.partial(on_bcommit_clicked))
 
 
@@ -3195,8 +3193,8 @@ def pandas_ui1(path):
             display(butts)
             displays()
 
-            
-        
+
+
         ##############################################################################
 
         #Buttons invoking their functions
@@ -3247,7 +3245,7 @@ def pandas_ui1(path):
         def primary_disp():
             #disp_accordion_val()
             clear_output()
-            
+
             display(box_z)
             display(lineout)
             print('')
@@ -3427,11 +3425,11 @@ def pandas_ui1(path):
 
     tab_c4 =  widgets.Output()
     with tab_c4:
-        
+
         bcmd = widgets.Button(description='Commands',button_style='success')
         def on_bcmd_clicked(antrl):
             clear_output()
-            
+
             display(lineout)
             display(headcmd)
             display(lineout)
@@ -3447,11 +3445,11 @@ def pandas_ui1(path):
              )
             display(htm)
 
-        
+
         bcmd.on_click(functools.partial(on_bcmd_clicked))
         label_layout37 = Layout(width='200px', height='30px')
 
-        
+
 
         headcmd = HBox([
                         Label('', layout=label_layout37),
@@ -3464,7 +3462,7 @@ def pandas_ui1(path):
         display(headcmd)
         display(lineout)
 
-        
+
     tab_c3 = widgets.Output()
 
     with tab_c3:
@@ -3575,7 +3573,7 @@ def pandas_ui1(path):
 
             plt_wid_dict['vio_box'] = plt_dd_creator(opts = [True,False], desc ='violin_box')
 
-            plt_wid_dict['hist_marg'] =  plt_dd_creator(opts = ['rug','histogram','violin','box'], desc ='hist_marg' )       
+            plt_wid_dict['hist_marg'] =  plt_dd_creator(opts = ['rug','histogram','violin','box'], desc ='hist_marg' )
 
 
             plt_wid_dict['scatt_s_max'] =  widgets.Text(description =  'scatt_s_max')
@@ -3739,12 +3737,12 @@ def pandas_ui1(path):
                     if pw['scatt_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['scatt_log_x'].value 
+                        log_xx =   pw['scatt_log_x'].value
 
                     if pw['scatt_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['scatt_log_y'].value 
+                        log_yx =   pw['scatt_log_y'].value
 
                     if pw['scatt_mar_x'].value == None:
                         marxx = None
@@ -3837,12 +3835,12 @@ def pandas_ui1(path):
                     if pw['box_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['box_log_x'].value 
+                        log_xx =   pw['box_log_x'].value
 
                     if pw['box_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['box_log_y'].value 
+                        log_yx =   pw['box_log_y'].value
 
 
 
@@ -3921,12 +3919,12 @@ def pandas_ui1(path):
                     if pw['vio_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['vio_log_x'].value 
+                        log_xx =   pw['vio_log_x'].value
 
                     if pw['vio_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['vio_log_y'].value 
+                        log_yx =   pw['vio_log_y'].value
 
 
 
@@ -4005,12 +4003,12 @@ def pandas_ui1(path):
                     if pw['hist_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['hist_log_x'].value 
+                        log_xx =   pw['hist_log_x'].value
 
                     if pw['hist_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['hist_log_y'].value 
+                        log_yx =   pw['hist_log_y'].value
 
 
 
@@ -4098,12 +4096,12 @@ def pandas_ui1(path):
                     if pw['strip_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['strip_log_x'].value 
+                        log_xx =   pw['strip_log_x'].value
 
                     if pw['strip_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['strip_log_y'].value 
+                        log_yx =   pw['strip_log_y'].value
 
 
 
@@ -4181,12 +4179,12 @@ def pandas_ui1(path):
                     if pw['area_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['area_log_x'].value 
+                        log_xx =   pw['area_log_x'].value
 
                     if pw['area_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['area_log_y'].value 
+                        log_yx =   pw['area_log_y'].value
 
 
 
@@ -4264,12 +4262,12 @@ def pandas_ui1(path):
                     if pw['dh_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['dh_log_x'].value 
+                        log_xx =   pw['dh_log_x'].value
 
                     if pw['dh_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['dh_log_y'].value 
+                        log_yx =   pw['dh_log_y'].value
 
                     if pw['dh_mar_x'].value == None:
                         marxx = None
@@ -4350,12 +4348,12 @@ def pandas_ui1(path):
                     if pw['dc_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['dc_log_x'].value 
+                        log_xx =   pw['dc_log_x'].value
 
                     if pw['dc_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['dc_log_y'].value 
+                        log_yx =   pw['dc_log_y'].value
 
                     if pw['dc_mar_x'].value == None:
                         marxx = None
@@ -4458,17 +4456,17 @@ def pandas_ui1(path):
                     if pw['scatt3_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['scatt3_log_x'].value 
+                        log_xx =   pw['scatt3_log_x'].value
 
                     if pw['scatt3_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['scatt3_log_y'].value 
+                        log_yx =   pw['scatt3_log_y'].value
 
                     if pw['scatt3_log_z'].value == None:
                         log_zx = None
                     else:
-                        log_zx =   pw['scatt3_log_z'].value 
+                        log_zx =   pw['scatt3_log_z'].value
 
 
 
@@ -4535,17 +4533,17 @@ def pandas_ui1(path):
                     if pw['line3_log_x'].value == None:
                         log_xx = None
                     else:
-                        log_xx =   pw['line3_log_x'].value 
+                        log_xx =   pw['line3_log_x'].value
 
                     if pw['line3_log_y'].value == None:
                         log_yx = None
                     else:
-                        log_yx =   pw['line3_log_y'].value 
+                        log_yx =   pw['line3_log_y'].value
 
                     if pw['line3_log_z'].value == None:
                         log_zx = None
                     else:
-                        log_zx =   pw['line3_log_z'].value 
+                        log_zx =   pw['line3_log_z'].value
 
 
 
@@ -4590,7 +4588,7 @@ def pandas_ui1(path):
 
                 #'scatter','box','violin','histogram','strip','density_heatmap','density_contour','area','scatter_3d','line_3d','scatter_matrix','parallel_coordinates','parallel_categories'
 
-                if plt_dig.value == "scatter_matrix":   
+                if plt_dig.value == "scatter_matrix":
                     if pw['scatt_m_sym'].value == None:
                         symbx = None
                     else:
@@ -4634,7 +4632,7 @@ def pandas_ui1(path):
 
                 #'scatter','box','violin','histogram','strip','density_heatmap','density_contour','area','scatter_3d','line_3d','scatter_matrix','parallel_coordinates','parallel_categories'
 
-                if plt_dig.value == "parallel_coordinates": 
+                if plt_dig.value == "parallel_coordinates":
 
                     if pw['p_coor_title'].value =="":
                         titlex = None
@@ -4730,7 +4728,7 @@ def pandas_ui1(path):
             display('~ d_hov     : Column value which will appear in hover info')
             display('~ log_x     : Transform x-axis to show logarithim of vlaues(log_y,log_z)')
             display('~ size      : Add different size points to plot based on values of a column')
-            
+
             display('~ symb      : Add different symbols to plot based on values of a column')
             display('~ ld        : Add different line dashes to plot based on values of a column')
             display('~ mar_x     : Add a marginal distribution of x values ( y vales, z values)')
@@ -4801,8 +4799,8 @@ def pandas_ui1(path):
 
 
         #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        
+
+
     children = [tab_c1, tab_c2, tab_c3, tab_c4]
 
     tab.children = children
@@ -4812,22 +4810,22 @@ def pandas_ui1(path):
     #display(icon)
     display(tab)
 
-    
+
     # Deal with ba    ck button by interchanging the bcb and bb/ have look into it.
-    
-    
+
+
 def pandas_ui(path):
     try:
         pandas_ui1(path)
     except:
-        
+
         js = '<script>alert("Exception arised");</script>'
         display(HTML(js))
         raise
         #print('.....')
         ###display(HTML(js))
-        
-        
+
+
 def get_df():
     return student.dataf
 def get_pivotdf():
