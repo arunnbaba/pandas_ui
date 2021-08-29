@@ -30,7 +30,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 import sys
-from IPython.display import display, HTML;import os
+from IPython.display import display, HTML
+import os
 
     
 
@@ -1371,15 +1372,12 @@ def pandas_ui1(path):
         #######################################################################################################
 
         def summ_disp(column_summ_val):
-            
-            patho = eval('pd.__file__')
-            patho =  patho.replace('pandas\__init__.py','')
 
+            patho = os.path.abspath(os.path.dirname(__file__))
 
-            
-            file = open(patho +"pandas_ui\plot.png", "rb")
+            file = open(os.path.join(patho, 'plot.png'), "rb")
             image = file.read()
-            file1 = open(patho +"pandas_ui\plt1.png", "rb")
+            file1 = open(os.path.join(patho, 'plt1.png'), "rb")
             image1 = file1.read()
             csv = widgets.Image(
                 value=image,
@@ -3436,10 +3434,8 @@ def pandas_ui1(path):
             display(headcmd)
             display(lineout)
 
-            patho = eval('pd.__file__')
-            patho =  patho.replace('pandas\__init__.py','')
-            patho =  patho+'pandas_ui\panda.html'
-            file = open(patho, "rb")
+            patho = os.path.abspath(os.path.dirname(__file__))
+            file = open(os.path.join(patho, 'panda.html'), "rb")
             image = file.read()
             htm = widgets.HTML(
                  value=image
@@ -4735,9 +4731,8 @@ def pandas_ui1(path):
             display('~ ld        : Add different line dashes to plot based on values of a column')
             display('~ mar_x     : Add a marginal distribution of x values ( y vales, z values)')
             display('~ s_max     : Set size of the point in the plot')
-            patho = eval('pd.__file__')
-            patho =  patho.replace('pandas\__init__.py','')
-            file = open(patho + 'pandas_ui\zis.jpg', 'rb')
+            patho = os.path.abspath(os.path.dirname(__file__))
+            file = open(os.path.join(patho, 'zis.jpg'), "rb")
             image = file.read()
             display(lineout)
             display('                                                             Reference                                                               ')
