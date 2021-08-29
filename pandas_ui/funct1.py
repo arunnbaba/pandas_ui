@@ -304,7 +304,7 @@ class student:
 #######################################################################################################
 
 
-def pandas_ui1(path):
+def pandas_ui1(path, **kwargs):
     
     #######################################################################################################\
     #######################################################################################################
@@ -337,7 +337,7 @@ def pandas_ui1(path):
     #widget Initialization:
 
     #df = pd.read_csv(r'C:\Users\thaarunn\Desktop\titanic.csv')
-    df  = pd.read_csv(path)
+    df  = pd.read_csv(path, **kwargs)
     stu = student()
     ########
     student.exp = [0,0]
@@ -4816,9 +4816,9 @@ def pandas_ui1(path):
     # Deal with ba    ck button by interchanging the bcb and bb/ have look into it.
     
     
-def pandas_ui(path):
+def pandas_ui(path, **kwargs):
     try:
-        pandas_ui1(path)
+        pandas_ui1(path, **kwargs)
     except:
         
         js = '<script>alert("Exception arised");</script>'
